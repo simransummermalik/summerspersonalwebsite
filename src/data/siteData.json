@@ -1,0 +1,927 @@
+{
+  "person": {
+    "name": "Summer",
+    "title": "wwifhwifhwi",
+    "tagline": "wwifhwifhwi"
+  },
+  "visual": {
+    "backgroundStarCount": 130000,
+    "constellationWebStep": 35,
+    "constellationWebOpacity": 0.072,
+    "cameraDrift": 0.7,
+    "galaxy": {
+      "starCount": 98000,
+      "dustCount": 38000,
+      "radius": 60,
+      "arms": 4,
+      "center": [8, 0, -66],
+      "nebulaCount": 18
+    },
+    "journeyAssets": [
+      {
+        "id": "star-river",
+        "type": "starStream",
+        "progressRange": [1.02, 5.15],
+        "position": [3, 1.2, -58],
+        "rotation": [-0.12, 0.5, 0.08],
+        "count": 32000,
+        "length": 118,
+        "width": 25,
+        "height": 10,
+        "colorA": "#79ecff",
+        "colorB": "#ff92d8",
+        "opacity": 0.92,
+        "speed": 0.03
+      },
+      {
+        "id": "constellation-gate",
+        "type": "constellationGate",
+        "progressRange": [1.18, 4.95],
+        "position": [-2, 1.1, -55],
+        "rotation": [0.28, -0.18, 0.12],
+        "radius": 12.8,
+        "depth": 7.2,
+        "starCount": 1300,
+        "nodes": 28,
+        "color": "#b9f7ff",
+        "accent": "#ffb0e9",
+        "opacity": 0.86,
+        "speed": -0.018
+      },
+      {
+        "id": "nebula-veil",
+        "type": "nebulaVeil",
+        "progressRange": [1.0, 5.25],
+        "position": [10, 3, -72],
+        "rotation": [-0.2, 0.35, -0.08],
+        "scale": [86, 32, 1],
+        "color": "#856dff",
+        "accent": "#ff8bd5",
+        "opacity": 0.42,
+        "layers": 9,
+        "speed": 0.012
+      },
+      {
+        "id": "distant-moon",
+        "type": "distantBody",
+        "progressRange": [1.25, 5.1],
+        "position": [-23, 8, -77],
+        "radius": 2.2,
+        "color": "#d9f4ff",
+        "glow": "#6edcff",
+        "opacity": 0.46,
+        "speed": 0.01
+      },
+      {
+        "id": "signal-lattice",
+        "type": "signalLattice",
+        "progressRange": [1.32, 4.85],
+        "position": [0, -1.8, -63],
+        "rotation": [-0.52, 0.18, 0.03],
+        "width": 42,
+        "height": 16,
+        "columns": 15,
+        "rows": 6,
+        "color": "#8fffe4",
+        "accent": "#ffd28d",
+        "opacity": 0.54,
+        "speed": 0.02
+      },
+      {
+        "id": "satellite-crossing-trails",
+        "type": "signalLattice",
+        "progressRange": [1.55, 4.75],
+        "position": [8, 4.2, -60],
+        "rotation": [-0.34, -0.46, 0.22],
+        "width": 28,
+        "height": 9,
+        "columns": 11,
+        "rows": 4,
+        "color": "#fff1b8",
+        "accent": "#91e7ff",
+        "opacity": 0.34,
+        "speed": -0.018
+      }
+    ],
+    "spaceTour": {
+      "durationMs": 60000,
+      "returnSection": "first-signal",
+      "exitLabel": "End tour",
+      "moments": [
+        {
+          "id": "launch",
+          "kicker": "Chapter 01",
+          "heading": "The sky opens.",
+          "text": "",
+          "camera": {
+            "position": [-16.5, 6.2, -31],
+            "target": [-8, 1.8, -50]
+          },
+          "assets": [
+            {
+              "type": "starBloom",
+              "position": [-8, 1.8, -54],
+              "rotation": [0.16, -0.26, 0.06],
+              "radius": 10,
+              "depth": 6,
+              "count": 1800,
+              "burst": 8,
+              "colorA": "#bff8ff",
+              "colorB": "#ffd4f2",
+              "opacity": 0.78,
+              "speed": 0.008
+            },
+            {
+              "type": "distantBody",
+              "position": [-12, 5.5, -61],
+              "radius": 1.05,
+              "color": "#fff6de",
+              "glow": "#ffd2ee",
+              "opacity": 0.36,
+              "speed": 0.006
+            }
+          ]
+        },
+        {
+          "id": "ribbon-drift",
+          "kicker": "Chapter 02",
+          "heading": "A river of stars.",
+          "text": "",
+          "camera": {
+            "position": [-5, 5.4, -42],
+            "target": [0, 2.4, -68]
+          },
+          "assets": [
+            {
+              "type": "starStream",
+              "position": [0, 2.2, -70],
+              "rotation": [-0.18, 0.48, 0.08],
+              "count": 42000,
+              "length": 132,
+              "width": 28,
+              "height": 12,
+              "colorA": "#77f5ff",
+              "colorB": "#ff9ee6",
+              "opacity": 0.95,
+              "speed": 0.026
+            },
+            {
+              "type": "nebulaVeil",
+              "position": [7, 2, -78],
+              "rotation": [-0.2, 0.22, -0.06],
+              "scale": [58, 22, 1],
+              "color": "#7b6dff",
+              "accent": "#ff8bd5",
+              "opacity": 0.4,
+              "layers": 8,
+              "speed": -0.008
+            },
+            {
+              "type": "distantBody",
+              "position": [-9, -0.5, -76],
+              "radius": 1.4,
+              "color": "#fff2ce",
+              "glow": "#8de9ff",
+              "opacity": 0.42,
+              "speed": 0.011
+            }
+          ]
+        },
+        {
+          "id": "constellation-theater",
+          "kicker": "Chapter 03",
+          "heading": "The lines wake up.",
+          "text": "",
+          "camera": {
+            "position": [9, 4.8, -55],
+            "target": [3, 0.7, -83]
+          },
+          "assets": [
+            {
+              "type": "starBloom",
+              "position": [3, 0.7, -84],
+              "rotation": [0.42, -0.1, 0.24],
+              "radius": 16,
+              "depth": 10,
+              "count": 3200,
+              "burst": 12,
+              "colorA": "#e5fbff",
+              "colorB": "#f8c0ff",
+              "opacity": 0.72,
+              "speed": -0.012
+            },
+            {
+              "type": "nebulaVeil",
+              "position": [-2, -2.4, -78],
+              "rotation": [-0.34, 0.12, 0.18],
+              "scale": [48, 18, 1],
+              "color": "#dffaff",
+              "accent": "#ffd4eb",
+              "opacity": 0.2,
+              "layers": 5,
+              "speed": 0.008
+            },
+            {
+              "type": "starBloom",
+              "position": [-11, 3.4, -88],
+              "rotation": [-0.18, 0.26, -0.22],
+              "radius": 9,
+              "depth": 6,
+              "count": 1400,
+              "burst": 7,
+              "colorA": "#95dcff",
+              "colorB": "#ffd8a0",
+              "opacity": 0.34,
+              "speed": 0.014
+            }
+          ]
+        },
+        {
+          "id": "signal-orchard",
+          "kicker": "Chapter 04",
+          "heading": "A field of motion.",
+          "text": "",
+          "camera": {
+            "position": [2, -1.2, -63],
+            "target": [-1, -2.5, -92]
+          },
+          "assets": [
+            {
+              "type": "starBloom",
+              "position": [0, -2.8, -93],
+              "rotation": [-0.16, 0.2, -0.08],
+              "radius": 17,
+              "depth": 9,
+              "count": 3000,
+              "burst": 11,
+              "colorA": "#8ffff0",
+              "colorB": "#ffd8a9",
+              "opacity": 0.66,
+              "speed": 0.012
+            },
+            {
+              "type": "nebulaVeil",
+              "position": [11, 3, -101],
+              "rotation": [0.24, -0.34, 0.14],
+              "scale": [42, 14, 1],
+              "color": "#ffd8f2",
+              "accent": "#9fe7ff",
+              "opacity": 0.28,
+              "layers": 6,
+              "speed": -0.006
+            }
+          ]
+        },
+        {
+          "id": "nebula-window",
+          "kicker": "Chapter 05",
+          "heading": "Color in the dark.",
+          "text": "",
+          "camera": {
+            "position": [15, 7.2, -68],
+            "target": [13, 1.6, -97]
+          },
+          "assets": [
+            {
+              "type": "nebulaVeil",
+              "position": [13, 1.5, -100],
+              "rotation": [-0.18, -0.08, 0.08],
+              "scale": [82, 30, 1],
+              "color": "#53d6ff",
+              "accent": "#ff7fd6",
+              "opacity": 0.58,
+              "layers": 11,
+              "speed": 0.012
+            },
+            {
+              "type": "distantBody",
+              "position": [5, -2.4, -92],
+              "radius": 1.6,
+              "color": "#fff4d0",
+              "glow": "#ffbfe8",
+              "opacity": 0.54,
+              "speed": 0.012
+            },
+            {
+              "type": "starStream",
+              "position": [15, 2.2, -106],
+              "rotation": [0.06, -0.1, 0.22],
+              "count": 16000,
+              "length": 72,
+              "width": 18,
+              "height": 9,
+              "colorA": "#fff0cb",
+              "colorB": "#74dfff",
+              "opacity": 0.42,
+              "speed": 0.016
+            }
+          ]
+        },
+        {
+          "id": "halo-crossing",
+          "kicker": "Chapter 06",
+          "heading": "Past the bright halo.",
+          "text": "",
+          "camera": {
+            "position": [8, 10, -84],
+            "target": [10, 2.2, -123]
+          },
+          "assets": [
+            {
+              "type": "distantBody",
+              "position": [10, 2.2, -124],
+              "radius": 2.4,
+              "color": "#fff8e8",
+              "glow": "#87dfff",
+              "opacity": 0.62,
+              "speed": 0.01
+            },
+            {
+              "type": "starBloom",
+              "position": [17, 6.5, -132],
+              "rotation": [0.32, 0.26, 0.1],
+              "radius": 15,
+              "depth": 9,
+              "count": 2400,
+              "burst": 10,
+              "colorA": "#dff9ff",
+              "colorB": "#ffc6ea",
+              "opacity": 0.3,
+              "speed": -0.01
+            },
+            {
+              "type": "starBloom",
+              "position": [-8, -3, -118],
+              "rotation": [0.08, 0.22, -0.08],
+              "radius": 11,
+              "depth": 7,
+              "count": 1800,
+              "burst": 7,
+              "colorA": "#fff3cc",
+              "colorB": "#83deff",
+              "opacity": 0.26,
+              "speed": 0.008
+            }
+          ]
+        },
+        {
+          "id": "deep-field",
+          "kicker": "Chapter 07",
+          "heading": "Then it gets enormous.",
+          "text": "",
+          "camera": {
+            "position": [-10, 10, -62],
+            "target": [6, 1.2, -112]
+          },
+          "assets": [
+            {
+              "type": "starStream",
+              "position": [6, 1.2, -114],
+              "rotation": [0.08, -0.36, -0.02],
+              "count": 52000,
+              "length": 154,
+              "width": 38,
+              "height": 16,
+              "colorA": "#d9fbff",
+              "colorB": "#8d86ff",
+              "opacity": 0.88,
+              "speed": -0.018
+            },
+            {
+              "type": "starBloom",
+              "position": [14, 0.4, -118],
+              "rotation": [0.18, 0.32, -0.18],
+              "radius": 19,
+              "depth": 10,
+              "count": 2800,
+              "burst": 13,
+              "colorA": "#ffe4fb",
+              "colorB": "#91e7ff",
+              "opacity": 0.42,
+              "speed": 0.007
+            },
+            {
+              "type": "nebulaVeil",
+              "position": [1, -4, -123],
+              "rotation": [0.06, 0.12, -0.04],
+              "scale": [94, 34, 1],
+              "color": "#5ed8ff",
+              "accent": "#8e7fff",
+              "opacity": 0.34,
+              "layers": 9,
+              "speed": 0.009
+            },
+            {
+              "type": "starBloom",
+              "position": [-14, 6, -128],
+              "rotation": [0.18, -0.22, 0.08],
+              "radius": 13,
+              "depth": 8,
+              "count": 2400,
+              "burst": 8,
+              "colorA": "#d9fbff",
+              "colorB": "#a59bff",
+              "opacity": 0.38,
+              "speed": 0.008
+            }
+          ]
+        },
+        {
+          "id": "return",
+          "kicker": "Chapter 08",
+          "heading": "Back to the first signal.",
+          "text": "",
+          "camera": {
+            "position": [-17, 6.4, -30],
+            "target": [-8, 1.8, -50]
+          },
+          "assets": []
+        }
+      ]
+    },
+    "satellites": [
+      {
+        "id": "tess-home",
+        "label": "TESS",
+        "model": "/models/nasa-tess.glb",
+        "section": "home",
+        "source": "NASA/Christopher R. Meaney",
+        "sourceUrl": "https://science.nasa.gov/3d-resources/transiting-exoplanet-survey-satellite-tess-a/",
+        "orbitCenter": [0.2, 0.1, 0],
+        "orbitRadius": 5.2,
+        "inclination": 1.08,
+        "phase": 2.65,
+        "speed": 0.18,
+        "scale": 0.32,
+        "maxOpacity": 0.54,
+        "orbitOpacity": 0.08,
+        "color": "#9de8ff"
+      },
+      {
+        "id": "relay-journey",
+        "label": "Pathfinder",
+        "model": "/models/nasa-tess.glb",
+        "section": "satellite-closeup",
+        "source": "NASA/Christopher R. Meaney",
+        "sourceUrl": "https://science.nasa.gov/3d-resources/transiting-exoplanet-survey-satellite-tess-a/",
+        "orbitCenter": [3, 1.2, -58],
+        "orbitRadius": 5.6,
+        "inclination": 0.52,
+        "phase": 1.1,
+        "speed": 0.26,
+        "scale": 0.48,
+        "maxOpacity": 0.86,
+        "orbitOpacity": 0.18,
+        "color": "#fff1b8"
+      },
+      {
+        "id": "relay-childhood",
+        "label": "Relay",
+        "model": "/models/nasa-tess.glb",
+        "section": "first-signal",
+        "source": "NASA Satellite Kit reference",
+        "sourceUrl": "https://science.nasa.gov/3d-resources/satellite-kit/",
+        "orbitCenter": [-8, 1.8, -50],
+        "orbitRadius": 3.1,
+        "inclination": -0.42,
+        "phase": 1.9,
+        "speed": -0.19,
+        "scale": 0.58,
+        "maxOpacity": 0.78,
+        "orbitOpacity": 0.16,
+        "color": "#ffb7e6"
+      },
+      {
+        "id": "relay-projects",
+        "label": "Surveyor",
+        "model": "/models/nasa-tess.glb",
+        "section": "projects",
+        "source": "NASA 3D Resources satellite reference",
+        "sourceUrl": "https://science.nasa.gov/3d-resources/",
+        "orbitCenter": [14, -1.5, -54],
+        "orbitRadius": 3.8,
+        "inclination": 0.36,
+        "phase": 2.7,
+        "speed": 0.16,
+        "scale": 0.52,
+        "maxOpacity": 0.72,
+        "orbitOpacity": 0.14,
+        "color": "#ffcf8f"
+      }
+    ]
+  },
+  "audio": {
+    "enabled": true,
+    "label": "Sound",
+    "provider": "youtube",
+    "youtubeReference": "https://www.youtube.com/watch?v=p2zMXSXhZ9M",
+    "youtubeId": "p2zMXSXhZ9M",
+    "file": "",
+    "volume": 0.22
+  },
+  "sections": [
+    {
+      "id": "home",
+      "label": "Home",
+      "content": {
+        "kicker": "",
+        "heading": "Hi, my name is Summer. This is where I live.",
+        "text": ""
+      },
+      "position": [0, 0, 0],
+      "camera": {
+        "position": [0, 0.55, 7.2],
+        "target": [0, 0, 0]
+      },
+      "visualMode": "earth",
+      "color": "#9de8ff",
+      "constellation": {
+        "starCount": 0
+      }
+    },
+    {
+      "id": "big-ideas",
+      "label": "Big Ideas",
+      "content": {
+        "kicker": "",
+        "heading": "But I have big ideas.",
+        "text": "A whole galaxy of things I want to build, study, test, write, and send into the world."
+      },
+      "position": [0, 0, -44],
+      "camera": {
+        "position": [18, 7, -24],
+        "target": [8, 0, -66]
+      },
+      "visualMode": "galaxy",
+      "color": "#ffffff",
+      "constellation": {
+        "starCount": 0
+      }
+    },
+    {
+      "id": "journey-through-space",
+      "label": "Transit",
+      "visualOnly": true,
+      "copyFrom": "big-ideas",
+      "content": {
+        "kicker": "",
+        "heading": "",
+        "text": ""
+      },
+      "position": [3, 1.2, -58],
+      "camera": {
+        "position": [9, 9.4, -27],
+        "target": [4, 1.4, -62]
+      },
+      "visualMode": "journey",
+      "color": "#fff1b8",
+      "constellation": {
+        "starCount": 0
+      }
+    },
+    {
+      "id": "satellite-closeup",
+      "label": "Satellite",
+      "visualOnly": true,
+      "copyFrom": "big-ideas",
+      "content": {
+        "kicker": "",
+        "heading": "",
+        "text": ""
+      },
+      "position": [3, 1.2, -58],
+      "camera": {
+        "position": [8, 3.2, -50],
+        "target": [6.5, 1.9, -58]
+      },
+      "visualMode": "journey",
+      "color": "#fff1b8",
+      "constellation": {
+        "starCount": 0
+      }
+    },
+    {
+      "id": "satellite-pullback",
+      "label": "Pullback",
+      "visualOnly": true,
+      "copyFrom": "big-ideas",
+      "content": {
+        "kicker": "",
+        "heading": "",
+        "text": ""
+      },
+      "position": [-2, 3.4, -60],
+      "camera": {
+        "position": [-6, 12.2, -25],
+        "target": [-2, 2.4, -58]
+      },
+      "visualMode": "journey",
+      "color": "#b9f7ff",
+      "constellation": {
+        "starCount": 0
+      }
+    },
+    {
+      "id": "first-signal",
+      "label": "First Signal",
+      "content": {
+        "kicker": "",
+        "heading": "Ever since I was little, I loved space.",
+        "text": "It has always made me want to be on the edge of what is possible."
+      },
+      "detail": {
+        "actionLabel": "Explore space",
+        "action": "spaceTour"
+      },
+      "position": [-8, 1.8, -50],
+      "camera": {
+        "position": [-17, 6.4, -30],
+        "target": [-8, 1.8, -50]
+      },
+      "visualMode": "constellation",
+      "color": "#ffb7e6",
+      "constellation": {
+        "starCount": 2400
+      }
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "content": {
+        "kicker": "",
+        "heading": "Research",
+        "text": "Spatial computing, quantum machine learning, and cancer genomics."
+      },
+      "detail": {
+        "actionLabel": "Enter research stars",
+        "kicker": "Research Constellation",
+        "heading": "Choose a signal.",
+        "intro": "Each star opens one research thread so the section feels like exploring a constellation instead of reading a resume panel.",
+        "quantumGalaxy": {
+          "title": "Quantum work",
+          "nodes": [
+            {
+              "id": "qml-research",
+              "label": "QML Research",
+              "text": "Hybrid quantum-classical experiments",
+              "position": [-1.9, 0.72, 0.18],
+              "detail": {
+                "heading": "QML Research",
+                "body": "Hybrid quantum-classical experiments studying where quantum feature spaces change model behavior, how variational circuits drift across retraining, and how QCNNs compare against small classical CNN baselines.",
+                "items": ["Identity drift across retraining", "Quantum CNN vs classical CNN baselines", "Parameterized quantum circuits", "Noise-aware simulation labs"],
+                "highlights": [
+                  "Presented quantum machine learning work at the CRA Computing Research Association conference in New Orleans on 4/24/2026.",
+                  "Focused on honest comparisons between classical and quantum-enhanced architectures, including prediction drift, representation drift, and parameter drift."
+                ],
+                "conference": {
+                  "heading": "CRA UR2PhD Workshop + Research Showcase",
+                  "body": "I attended the Computing Research Association's UR2PhD Undergraduate Mentoring Workshop and Research Showcase, a nationally competitive research-focused event for undergraduate students interested in PhD pathways in computing. I was selected as one of about 100 students from across the country, presented my quantum machine learning research, and connected with undergraduate researchers, PhD students, faculty, and mentors in New Orleans.",
+                  "images": ["conferenceImage1", "conferenceImage2", "conferenceImage3"],
+                  "imageAlt": "Summer at the CRA UR2PhD Undergraduate Mentoring Workshop and Research Showcase",
+                  "links": [
+                    {
+                      "label": "Research poster",
+                      "assetKey": "researchPosterPdf"
+                    },
+                    {
+                      "label": "LinkedIn post",
+                      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7455061669082378241/"
+                    }
+                  ]
+                },
+                "artifactsHeading": "Colab notebooks",
+                "artifacts": [
+                  {
+                    "title": "Identity Drift in Hybrid Quantum-Classical Models",
+                    "label": "Open notebook",
+                    "assetKey": "identityDriftNotebook",
+                    "description": "A research notebook testing whether hybrid QML models preserve behavior over time, measuring prediction drift, representation drift, and parameter drift across seeds, retraining, noise, and perturbation."
+                  },
+                  {
+                    "title": "Quantum Convolutional Neural Network",
+                    "label": "Open notebook",
+                    "assetKey": "quantumCnnNotebook",
+                    "description": "A QCNN experiment for small 4x4 Fashion-MNIST images, comparing a PennyLane + PyTorch quantum-classical model against a tiny classical CNN baseline."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "qml-torch",
+              "label": "qml-torch",
+              "text": "PyTorch + PennyLane + Qiskit toolkit",
+              "position": [1.45, 0.36, -0.48],
+              "detail": {
+                "heading": "QML Torch",
+                "body": "A next-generation framework that bridges quantum computation with deep learning, designed as a hardware-agnostic research environment for reproducible QML experiments.",
+                "items": ["PyTorch pipelines", "PennyLane layers", "Qiskit backends"]
+              }
+            },
+            {
+              "id": "division-teaching",
+              "label": "Division + Teaching",
+              "text": "Student research group and quantum ML lessons",
+              "position": [-0.35, -1.05, 0.36],
+              "zoom": "deep",
+              "detail": {
+                "heading": "Division + Teaching Group",
+                "overview": "I lead Charlotte AI Research's Quantum Machine Learning division, building QML Torch while designing labs, curriculum, and experiments around variational circuits, quantum kernels, feature maps, decoherence, gradient flow, expressivity, and optimization stability.",
+                "body": "A research cockpit for the division: lessons, experiments, and poster artifacts orbit this star.",
+                "note": "These are only a few. I will add notebooks and meeting notes later.",
+                "meta": "Total entries: 4 - Last updated 10/20/2025",
+                "notebooks": [
+                  {
+                    "label": "BB84",
+                    "title": "Quantum Key Distribution - BB84 Protocol Experiment",
+                    "date": "10/20/2025",
+                    "description": "Experimental implementation of the BB84 quantum key distribution protocol using Qiskit, exploring quantum randomness, measurement disturbance, and eavesdrop detection."
+                  },
+                  {
+                    "label": "QAOA",
+                    "title": "Quantum Optimization - UNC Charlotte Traveling Salesman (QAOA)",
+                    "date": "10/20/2025",
+                    "description": "Hands-on experiment demonstrating QAOA using UNC Charlotte buildings to solve the Traveling Salesman Problem both classically and quantumly."
+                  },
+                  {
+                    "label": "XOR",
+                    "title": "Quantum XOR - Visualizing Entanglement and Nonlinearity",
+                    "date": "9/30/2025",
+                    "description": "Conceptual quantum reimagining of XOR, built to show how quantum logic and interference patterns could replicate nonlinearity in ML decision spaces."
+                  },
+                  {
+                    "label": "Layer",
+                    "title": "QML Torch: Conceptual Quantum Layer Experiment",
+                    "date": "9/24/2025",
+                    "description": "Initial QML Torch lab exploring how quantum superposition and entanglement can conceptually extend classical nonlinear modeling."
+                  }
+                ],
+                "poster": {
+                  "heading": "CAIR Research Poster",
+                  "body": "Poster artifact for the Division + Teaching group.",
+                  "assetKey": "cairPosterPdf",
+                  "source": "images/CAIR Research Poster.pptx - Google Slides.pdf",
+                  "actionLabel": "Open poster PDF",
+                  "note": "Bundled from the local images folder so it is part of the site."
+                }
+              }
+            }
+          ]
+        },
+        "entries": [
+          {
+            "title": "Undergraduate Researcher, Ur2PhD",
+            "shortLabel": "Spatial",
+            "organization": "Computing Research Association",
+            "dates": "Jan 2026 - Present",
+            "meta": "Spatial Computing - Apple Vision Pro",
+            "summary": "Conducting undergraduate research in spatial computing with Apple Vision Pro, focused on the mathematical and algorithmic foundations behind how immersive systems perceive, model, and respond to real-world environments.",
+            "cinematicText": "Exploring how immersive systems understand real space.",
+            "details": "This work explores 3D scene understanding, spatial inference, geometric reasoning, and real-time environment-aware computation, especially how intelligent systems make decisions inside dynamically mapped physical spaces.",
+            "tags": ["Spatial Computing", "Apple Vision Pro", "3D Scene Understanding", "Geometric Reasoning"],
+            "starPosition": [-2.05, 1.05, 0.42],
+            "color": "#d7f5ff"
+          },
+          {
+            "title": "Quantum Machine Learning Researcher",
+            "shortLabel": "Quantum ML",
+            "organization": "University of North Carolina at Charlotte",
+            "dates": "Aug 2025 - Present",
+            "meta": "Hybrid Quantum-Classical Models",
+            "summary": "Exploring hybrid quantum-classical models by embedding parameterized quantum circuits directly into PyTorch pipelines using PennyLane and Qiskit.",
+            "cinematicText": "Testing where quantum feature spaces actually shift model behavior.",
+            "visual": "blackHole",
+            "details": "I design and run experiments comparing classical CNNs with quantum-enhanced architectures to investigate where quantum feature spaces meaningfully shift model behavior and where they do not.",
+            "tags": ["Quantum ML", "PyTorch", "PennyLane", "Qiskit", "Variational Circuits"],
+            "starPosition": [1.35, 1.42, -0.18],
+            "color": "#f1edff",
+            "links": [
+              {
+                "label": "qml-torch",
+                "url": "https://github.com/simransummermalik/qml-torch"
+              }
+            ]
+          },
+          {
+            "title": "Quantum ML Research Division Lead",
+            "shortLabel": "Division",
+            "organization": "Charlotte AI Research / UNC Charlotte",
+            "dates": "Aug 2025 - Present",
+            "meta": "Student Research Leadership",
+            "summary": "Leading the Quantum Machine Learning research division and helping students build intuition for quantum computing through research-driven instruction.",
+            "cinematicText": "Leading students through quantum ML foundations and experiments.",
+            "visual": "blackHole",
+            "details": "I teach introductory quantum computing concepts, variational circuits, and hybrid quantum-classical methods while guiding student-facing exploration of what quantum feature spaces can and cannot add to practical ML systems.",
+            "tags": ["Research Leadership", "Quantum Computing", "Teaching", "Hybrid Methods"],
+            "starPosition": [0.3, -1.35, 0.88],
+            "color": "#ffe5aa"
+          },
+          {
+            "title": "Cancer Genomics Research Intern, Summer Institute",
+            "shortLabel": "Genomics",
+            "organization": "The Jackson Laboratory",
+            "dates": "Jun 2025 - Jul 2025",
+            "meta": "Internship - Cancer Genomics",
+            "summary": "Selected for the Cancer Genomics Research Summer Institute at The Jackson Laboratory, receiving intensive training in cancer genomics and precision medicine while working alongside clinicians and researchers.",
+            "cinematicText": "Using computational genomics to connect variants to real treatment decisions.",
+            "details": "I applied bioinformatics and computational methods to analyze next-generation sequencing data, evaluate variant pathogenicity, and explore how genomic findings inform treatment strategies. My work involved clinical genomics databases including OncoKB, COSMIC, and CIViC to investigate driver versus passenger mutations, resistance mechanisms, and variant tier classification.",
+            "tags": ["Cancer Genomics", "Bioinformatics", "NGS", "Precision Medicine", "Variant Interpretation"],
+            "starPosition": [-0.88, -0.64, -1.4],
+            "color": "#ffd1ec"
+          }
+        ]
+      },
+      "position": [-13, 4, -48],
+      "camera": {
+        "position": [-10, 4.8, -22],
+        "target": [-13, 4, -48]
+      },
+      "visualMode": "planet",
+      "color": "#9de8ff",
+      "planet": {
+        "texture": "neptune",
+        "radius": 1.45,
+        "glow": "#6fd8ff",
+        "rotationSpeed": 0.003
+      },
+      "constellation": {
+        "starCount": 1700
+      }
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "content": {
+        "kicker": "",
+        "heading": "Projects",
+        "text": "Placeholder project text."
+      },
+      "position": [14, -1.5, -54],
+      "camera": {
+        "position": [12, -0.5, -26],
+        "target": [14, -1.5, -54]
+      },
+      "visualMode": "planet",
+      "color": "#ffb48f",
+      "planet": {
+        "texture": "mars",
+        "radius": 1.15,
+        "glow": "#ff8a6d",
+        "rotationSpeed": 0.004
+      },
+      "constellation": {
+        "starCount": 1650
+      }
+    },
+    {
+      "id": "systems",
+      "label": "Systems",
+      "content": {
+        "kicker": "",
+        "heading": "Systems",
+        "text": "Placeholder systems text."
+      },
+      "position": [4, 6.5, -64],
+      "camera": {
+        "position": [5.5, 6.5, -35],
+        "target": [4, 6.5, -64]
+      },
+      "visualMode": "planet",
+      "color": "#ffd28d",
+      "planet": {
+        "texture": "saturn",
+        "radius": 1.25,
+        "glow": "#ffd28d",
+        "ring": true,
+        "rotationSpeed": 0.0022
+      },
+      "constellation": {
+        "starCount": 1500
+      }
+    },
+    {
+      "id": "contact",
+      "label": "Signal",
+      "content": {
+        "kicker": "",
+        "heading": "Send a signal.",
+        "text": "Placeholder contact text."
+      },
+      "position": [0, -4.5, -74],
+      "camera": {
+        "position": [0, -3.4, -47],
+        "target": [0, -4.5, -74]
+      },
+      "visualMode": "planet",
+      "color": "#ffffff",
+      "planet": {
+        "texture": "venus",
+        "radius": 1.05,
+        "glow": "#f7d8ff",
+        "rotationSpeed": 0.0028
+      },
+      "constellation": {
+        "starCount": 1500
+      }
+    }
+  ]
+}
