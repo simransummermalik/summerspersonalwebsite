@@ -774,12 +774,59 @@
             "organization": "Computing Research Association",
             "dates": "Jan 2026 - Present",
             "meta": "Spatial Computing - Apple Vision Pro",
-            "summary": "Conducting undergraduate research in spatial computing with Apple Vision Pro, focused on the mathematical and algorithmic foundations behind how immersive systems perceive, model, and respond to real-world environments.",
-            "cinematicText": "Exploring how immersive systems understand real space.",
-            "details": "This work explores 3D scene understanding, spatial inference, geometric reasoning, and real-time environment-aware computation, especially how intelligent systems make decisions inside dynamically mapped physical spaces.",
-            "tags": ["Spatial Computing", "Apple Vision Pro", "3D Scene Understanding", "Geometric Reasoning"],
+            "summary": "Studying how algorithms behave inside live spatial computing systems, especially how different representations of the same physical environment can change what an algorithm is able to perceive, decide, and optimize.",
+            "cinematicText": "Modeling how algorithms see a room before they make a decision.",
+            "details": "This research explores spatial computing systems where AR/VR, assistive navigation, and robotics depend on internal models of the real world. If those models are incomplete or poorly structured, the decisions made from them can become unreliable.",
+            "tags": ["Spatial Computing", "Apple Vision Pro", "Scene Representation", "Algorithmic Decision-Making"],
             "starPosition": [-2.05, 1.05, 0.42],
-            "color": "#d7f5ff"
+            "color": "#d7f5ff",
+            "nodePanel": {
+              "theme": "spatial",
+              "kicker": "Spatial node",
+              "heading": "Spatial Computing",
+              "body": "My UR2PhD research studies how algorithms behave in live spatial systems, specifically how different representations of the same physical environment change what a system can perceive, decide, and optimize.",
+              "overview": "The project connects 3D scene understanding, spatial inference, geometric reasoning, and real-time environment-aware computation. The core question is not just whether a system maps a room, but whether the structure of that map changes the decisions built on top of it.",
+              "itemsHeading": "Research signals",
+              "items": [
+                "Representation choices can change what an algorithm is able to notice.",
+                "AR/VR, assistive navigation, and robotics rely on internal models of real environments.",
+                "Incomplete or poorly structured spatial models can make downstream decisions unreliable.",
+                "Mentored by Dr. Todd Dobbs through the UR2PhD research experience."
+              ],
+              "conference": {
+                "heading": "UR2PhD Spatial Research",
+                "body": "I shared this semester's spatial computing work through the Computing Research Association's UR2PhD program, focusing on how algorithms reason over live representations of physical environments.",
+                "images": ["spatialImage1", "spatialImage2"],
+                "imageAlt": "Spatial computing research visuals",
+                "links": [
+                  {
+                    "label": "LinkedIn post",
+                    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7455704326435450881/"
+                  },
+                  {
+                    "label": "Research abstract",
+                    "assetKey": "spatialAbstractPdf"
+                  }
+                ]
+              },
+              "artifactsHeading": "Spatial research artifacts",
+              "artifacts": [
+                {
+                  "title": "Research Abstract",
+                  "label": "Open abstract",
+                  "assetKey": "spatialAbstractPdf",
+                  "description": "A concise abstract for the spatial computing research thread."
+                },
+                {
+                  "title": "Research Logs",
+                  "label": "Open logs",
+                  "assetKey": "spatialLogsPdf",
+                  "description": "Working notes and project logs from the spatial computing research process."
+                }
+              ],
+              "note": "This section is data-driven, so more logs, images, and project notes can be added later without changing the scene code.",
+              "closeLabel": "Back to research"
+            }
           },
           {
             "title": "Quantum Machine Learning Researcher",

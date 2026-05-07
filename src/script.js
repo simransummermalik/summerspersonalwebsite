@@ -21,6 +21,10 @@ import researchPosterPdf from '../images/Research Template - Google Slides.pdf';
 import conferenceImage1 from '../images/conferenceimage1.jpg';
 import conferenceImage2 from '../images/conferenceimage2.jpg';
 import conferenceImage3 from '../images/conferenceimage3.jpg';
+import spatialImage1 from '../images/spatial1.jpg';
+import spatialImage2 from '../images/spatial2.jpg';
+import spatialLogsPdf from '../images/Spatial Logs - Google Docs.pdf';
+import spatialAbstractPdf from '../images/Spatial Research Abstract - Google Docs.pdf';
 import identityDriftNotebook from '../notebooks/qml_identity_drift_notebook.ipynb?url';
 import quantumCnnNotebook from '../notebooks/QuantumCNN.ipynb?url';
 
@@ -72,6 +76,11 @@ function getResearchEntries() {
 function isQuantumResearchEntry(index) {
   const entry = getResearchEntries()[index];
   return entry?.visual === 'blackHole' || /quantum/i.test(entry?.title ?? '');
+}
+
+function isFeatureResearchEntry(index) {
+  const entry = getResearchEntries()[index];
+  return Boolean(entry?.nodePanel);
 }
 
 function getNavLabel(section) {
@@ -171,6 +180,10 @@ const assetUrls = {
   conferenceImage1,
   conferenceImage2,
   conferenceImage3,
+  spatialImage1,
+  spatialImage2,
+  spatialLogsPdf,
+  spatialAbstractPdf,
   identityDriftNotebook,
   quantumCnnNotebook
 };
@@ -2129,6 +2142,7 @@ function jumpToCluster(index) {
   endSpaceTour();
   exitQuantumMode(false);
   closeDetailArchive();
+  hideQuantumNodePanel();
   researchExploreIndex = null;
   setRouteJumping();
   setActiveCluster(index);
@@ -2169,26 +2183,60 @@ function exitQuantumMode(keepResearch = true) {
   updateResearchNodeDock();
 }
 
+function closeResearchFeaturePanel() {
+  hideQuantumNodePanel();
+  researchExploreIndex = null;
+  updateResearchNodeDock();
+}
+
+function openResearchFeaturePanel(entryIndex) {
+  const entry = getResearchEntries()[entryIndex];
+  if (!entry?.nodePanel) return;
+  endSpaceTour();
+  exitQuantumMode(false);
+  detailArchiveIndex = null;
+  researchArchiveEl?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('is-research-open');
+  setActiveCluster(researchSectionIndex);
+  activeResearchEntryIndex = entryIndex;
+  researchExploreIndex = entryIndex;
+  renderQuantumNodePanel(
+    {
+      label: entry.shortLabel ?? entry.title,
+      text: entry.summary,
+      detail: entry.nodePanel
+    },
+    null,
+    {
+      kicker: entry.nodePanel.kicker ?? 'Research node',
+      closeLabel: entry.nodePanel.closeLabel ?? 'Back to research',
+      onClose: closeResearchFeaturePanel
+    }
+  );
+  updateResearchNodeDock();
+}
+
 function hideQuantumNodePanel() {
   if (!quantumNodePanelEl) return;
   quantumNodePanelEl.setAttribute('aria-hidden', 'true');
   quantumNodePanelEl.replaceChildren();
 }
 
-function renderQuantumNodePanel(node, notebook = null) {
+function renderQuantumNodePanel(node, notebook = null, options = {}) {
   if (!quantumNodePanelEl || !node) return;
   const detail = node.detail ?? {};
   const activeNodeIndex = researchStarSystem?.quantumNodes?.findIndex(({ data }) => data === node) ?? -1;
   const content = document.createElement('div');
   content.className = [
     'quantum-node-shell',
+    detail.theme ? `quantum-node-shell--${detail.theme}` : '',
     detail.notebooks?.length ? 'quantum-node-shell--notebooks' : '',
     notebook ? 'quantum-node-shell--notebook-detail' : ''
   ].filter(Boolean).join(' ');
 
   const kicker = document.createElement('p');
   kicker.className = 'quantum-node-kicker';
-  kicker.textContent = 'Quantum node';
+  kicker.textContent = notebook?.kicker ?? detail.kicker ?? options.kicker ?? 'Quantum node';
 
   const heading = document.createElement('h2');
   heading.textContent = notebook?.title ?? detail.heading ?? node.label;
@@ -2200,9 +2248,13 @@ function renderQuantumNodePanel(node, notebook = null) {
   const close = document.createElement('button');
   close.type = 'button';
   close.className = 'quantum-node-close';
-  close.textContent = 'Back to field';
+  close.textContent = options.closeLabel ?? 'Back to field';
   close.addEventListener('click', () => {
     quantumNodeFocusIndex = null;
+    if (options.onClose) {
+      options.onClose();
+      return;
+    }
     hideQuantumNodePanel();
   });
 
@@ -2310,7 +2362,7 @@ function renderQuantumNodePanel(node, notebook = null) {
   if (entries?.length) {
     const listHeading = document.createElement('p');
     listHeading.className = 'quantum-node-subhead';
-    listHeading.textContent = detail.notebooks ? 'Notebook nodes' : 'Signals';
+    listHeading.textContent = detail.itemsHeading ?? (detail.notebooks ? 'Notebook nodes' : 'Signals');
     content.appendChild(listHeading);
 
     const list = document.createElement('ul');
@@ -2405,8 +2457,11 @@ function renderResearchNodeDock() {
       setActiveCluster(researchSectionIndex);
       if (isQuantumResearchEntry(index)) {
         enterQuantumMode(index);
+      } else if (isFeatureResearchEntry(index)) {
+        openResearchFeaturePanel(index);
       } else {
         exitQuantumMode(false);
+        hideQuantumNodePanel();
         openDetailArchive(researchSectionIndex, index);
       }
     });
@@ -2622,6 +2677,7 @@ function setActiveCluster(index, instant = false, preserveScroll = false) {
     quantumDiveStartedAt = 0;
     document.body.classList.remove('is-quantum-mode');
     quantumReturnEl?.setAttribute('aria-hidden', 'true');
+    hideQuantumNodePanel();
   }
 
   window.clearTimeout(textTransitionTimer);
@@ -2706,6 +2762,8 @@ function renderResearchEntry(section, entryIndex = 0) {
     const openEntry = (nextIndex) => {
       if (isQuantumResearchEntry(nextIndex)) {
         enterQuantumMode(nextIndex);
+      } else if (isFeatureResearchEntry(nextIndex)) {
+        openResearchFeaturePanel(nextIndex);
       } else {
         openDetailArchive(detailArchiveIndex ?? activeClusterIndex, nextIndex);
       }
@@ -2734,7 +2792,12 @@ function openDetailArchive(index = activeClusterIndex, entryIndex = 0) {
     enterQuantumMode(entryIndex);
     return;
   }
+  if (index === researchSectionIndex && isFeatureResearchEntry(entryIndex)) {
+    openResearchFeaturePanel(entryIndex);
+    return;
+  }
 
+  hideQuantumNodePanel();
   detailArchiveIndex = index;
   activeResearchEntryIndex = THREE.MathUtils.clamp(entryIndex, 0, Math.max(0, (section.detail.entries?.length ?? 1) - 1));
   researchExploreIndex = activeResearchEntryIndex;
@@ -3084,8 +3147,11 @@ function handlePointerDown() {
     setActiveCluster(sectionIndex);
     if (isQuantumResearchEntry(entryIndex)) {
       enterQuantumMode(entryIndex);
+    } else if (isFeatureResearchEntry(entryIndex)) {
+      openResearchFeaturePanel(entryIndex);
     } else {
       exitQuantumMode(false);
+      hideQuantumNodePanel();
       openDetailArchive(sectionIndex, entryIndex);
     }
     return;
@@ -3429,6 +3495,10 @@ window.addEventListener('keydown', (event) => {
     }
     if (quantumMode) {
       exitQuantumMode(true);
+      return;
+    }
+    if (quantumNodePanelEl?.getAttribute('aria-hidden') === 'false') {
+      closeResearchFeaturePanel();
       return;
     }
     closeDetailArchive();

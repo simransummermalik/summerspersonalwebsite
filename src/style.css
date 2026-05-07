@@ -996,6 +996,38 @@ body.is-copy-fading[data-section="big-ideas"] .section-panel {
   flex-direction: column;
 }
 
+.quantum-node-shell--spatial {
+  --spatial-cyan: rgba(146, 244, 255, 0.9);
+  --spatial-green: rgba(178, 255, 210, 0.78);
+}
+
+.quantum-node-shell--spatial .quantum-node-kicker,
+.quantum-node-shell--spatial .quantum-node-subhead {
+  color: var(--spatial-cyan);
+}
+
+.quantum-node-shell--spatial h2 {
+  max-width: 10ch;
+  text-shadow: 0 0 40px rgba(146, 244, 255, 0.22), 0 18px 52px rgba(0, 0, 0, 0.76);
+}
+
+.quantum-node-shell--spatial .quantum-node-overview {
+  border-top-color: rgba(178, 255, 210, 0.16);
+}
+
+.quantum-node-shell--spatial .quantum-node-list li,
+.quantum-node-shell--spatial .quantum-node-artifact,
+.quantum-node-shell--spatial .quantum-node-conference {
+  border-top-color: rgba(146, 244, 255, 0.16);
+}
+
+.quantum-node-shell--spatial .quantum-node-highlights p,
+.quantum-node-shell--spatial .quantum-node-conference-copy strong,
+.quantum-node-shell--spatial .quantum-node-artifact em,
+.quantum-node-shell--spatial .quantum-node-actions a {
+  color: var(--spatial-green);
+}
+
 .quantum-node-shell--notebooks {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
@@ -1155,12 +1187,21 @@ body.is-copy-fading[data-section="big-ideas"] .section-panel {
   gap: 5px;
 }
 
+.quantum-node-shell--spatial .quantum-node-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .quantum-node-media img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border: 1px solid rgba(174, 230, 255, 0.16);
   filter: saturate(1.08) contrast(1.04);
+}
+
+.quantum-node-shell--spatial .quantum-node-media img {
+  aspect-ratio: 1 / 1;
+  filter: saturate(1.18) contrast(1.08) brightness(1.02);
 }
 
 .quantum-node-conference-copy {
