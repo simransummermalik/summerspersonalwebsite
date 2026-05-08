@@ -805,6 +805,12 @@ body.is-copy-fading[data-section="big-ideas"] .section-panel {
   pointer-events: auto;
 }
 
+#cluster-nav[data-mode="research"],
+#cluster-nav[data-mode="quantum"] {
+  gap: 10px;
+  opacity: 0.9;
+}
+
 .nav-dot {
   position: relative;
   min-width: 50px;
@@ -824,6 +830,16 @@ body.is-copy-fading[data-section="big-ideas"] .section-panel {
   transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
+.nav-dot--context {
+  min-width: 88px;
+  color: rgba(220, 240, 252, 0.5);
+}
+
+#cluster-nav[data-mode="quantum"] .nav-dot--context {
+  min-width: 118px;
+  border-right-color: rgba(211, 201, 255, 0.2);
+}
+
 .nav-dot span {
   display: block;
   margin-bottom: 1px;
@@ -836,6 +852,12 @@ body.is-copy-fading[data-section="big-ideas"] .section-panel {
   border-right-color: rgba(235, 248, 255, 0.66);
   color: rgba(246, 252, 255, 0.9);
   transform: translateX(-3px);
+}
+
+.nav-dot[data-quantum="true"].is-active,
+#cluster-nav[data-mode="quantum"] .nav-dot.is-active {
+  border-right-color: rgba(211, 201, 255, 0.78);
+  color: rgba(238, 235, 255, 0.96);
 }
 
 .quantum-return {

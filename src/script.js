@@ -2118,17 +2118,87 @@ fadeMaterial(background.web.material, 0, 1);
 fadeObject(celestial.sun, 0, 1);
 fadeObject(celestial.sunGlow, 0, 1);
 
-sections.forEach((cluster, index) => {
-  if (cluster.visualOnly) return;
-  const button = document.createElement('button');
-  button.className = 'nav-dot';
-  button.type = 'button';
-  button.dataset.index = String(index);
-  button.setAttribute('aria-label', cluster.label);
-  button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span>${getNavLabel(cluster)}`;
-  button.addEventListener('click', () => jumpToCluster(index));
-  navHost.appendChild(button);
-});
+function activateResearchEntry(index) {
+  setActiveCluster(researchSectionIndex);
+  if (isQuantumResearchEntry(index)) {
+    enterQuantumMode(index);
+  } else if (isFeatureResearchEntry(index)) {
+    openResearchFeaturePanel(index);
+  } else {
+    exitQuantumMode(false);
+    hideQuantumNodePanel();
+    openDetailArchive(researchSectionIndex, index);
+  }
+}
+
+function getNavMode() {
+  if (quantumMode) return 'quantum';
+  if (activeClusterIndex === researchSectionIndex || detailArchiveIndex === researchSectionIndex || researchExploreIndex !== null) {
+    return 'research';
+  }
+  return 'sections';
+}
+
+function renderContextNav() {
+  if (!navHost) return;
+  const mode = getNavMode();
+  navHost.dataset.mode = mode;
+  navHost.replaceChildren();
+
+  if (mode === 'quantum') {
+    const nodes = sections[researchSectionIndex]?.detail?.quantumGalaxy?.nodes ?? [];
+    navHost.setAttribute('aria-label', 'Quantum research nodes');
+    nodes.forEach((node, index) => {
+      const button = document.createElement('button');
+      button.className = 'nav-dot nav-dot--context';
+      button.type = 'button';
+      button.dataset.quantumNode = String(index);
+      button.setAttribute('aria-label', node.label);
+      button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span>${node.label}`;
+      button.classList.toggle('is-active', quantumNodeFocusIndex === index);
+      button.addEventListener('click', () => focusQuantumNode(index));
+      navHost.appendChild(button);
+    });
+    return;
+  }
+
+  if (mode === 'research') {
+    const entries = getResearchEntries();
+    navHost.setAttribute('aria-label', 'Research entries');
+    entries.forEach((entry, index) => {
+      const button = document.createElement('button');
+      button.className = 'nav-dot nav-dot--context';
+      button.type = 'button';
+      button.dataset.researchNode = String(index);
+      if (isQuantumResearchEntry(index)) button.dataset.quantum = 'true';
+      button.setAttribute('aria-label', entry.title ?? entry.shortLabel ?? `Research ${index + 1}`);
+      button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span>${entry.shortLabel ?? entry.title}`;
+      button.classList.toggle('is-active', activeResearchEntryIndex === index);
+      button.addEventListener('click', () => activateResearchEntry(index));
+      navHost.appendChild(button);
+    });
+    return;
+  }
+
+  navHost.setAttribute('aria-label', 'Portfolio sections');
+  const activeNavIndex = sections[activeClusterIndex]?.visualOnly && sections[activeClusterIndex]?.copyFrom
+    ? sections.findIndex((candidate) => candidate.id === sections[activeClusterIndex].copyFrom)
+    : activeClusterIndex;
+  sections.forEach((cluster, index) => {
+    if (cluster.visualOnly) return;
+    const button = document.createElement('button');
+    button.className = 'nav-dot';
+    button.type = 'button';
+    button.dataset.index = String(index);
+    button.setAttribute('aria-label', cluster.label);
+    button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span>${getNavLabel(cluster)}`;
+    button.classList.toggle('is-active', index === activeNavIndex);
+    button.addEventListener('click', () => jumpToCluster(index));
+    navHost.appendChild(button);
+  });
+}
+
+renderContextNav();
 
 function setRouteJumping() {
   document.body.classList.add('is-route-jumping');
@@ -2187,6 +2257,7 @@ function closeResearchFeaturePanel() {
   hideQuantumNodePanel();
   researchExploreIndex = null;
   updateResearchNodeDock();
+  renderContextNav();
 }
 
 function openResearchFeaturePanel(entryIndex) {
@@ -2256,6 +2327,7 @@ function renderQuantumNodePanel(node, notebook = null, options = {}) {
       return;
     }
     hideQuantumNodePanel();
+    renderContextNav();
   });
 
   const header = document.createElement('header');
@@ -2433,6 +2505,7 @@ function focusQuantumNode(nodeIndex) {
   if (!quantumMode || !researchStarSystem?.quantumNodes?.[nodeIndex]) return;
   quantumNodeFocusIndex = nodeIndex;
   renderQuantumNodePanel(researchStarSystem.quantumNodes[nodeIndex].data);
+  renderContextNav();
 }
 
 function focusQuantumNotebook(nodeIndex, notebookIndex) {
@@ -2440,6 +2513,7 @@ function focusQuantumNotebook(nodeIndex, notebookIndex) {
   const node = researchStarSystem.quantumNodes[nodeIndex];
   quantumNodeFocusIndex = nodeIndex;
   renderQuantumNodePanel(node.data, node.notebookNodes?.[notebookIndex]?.data);
+  renderContextNav();
 }
 
 function renderResearchNodeDock() {
@@ -2453,18 +2527,7 @@ function renderResearchNodeDock() {
     button.dataset.researchNode = String(index);
     if (isQuantumResearchEntry(index)) button.dataset.quantum = 'true';
     button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span>${entry.shortLabel ?? entry.title}`;
-    button.addEventListener('click', () => {
-      setActiveCluster(researchSectionIndex);
-      if (isQuantumResearchEntry(index)) {
-        enterQuantumMode(index);
-      } else if (isFeatureResearchEntry(index)) {
-        openResearchFeaturePanel(index);
-      } else {
-        exitQuantumMode(false);
-        hideQuantumNodePanel();
-        openDetailArchive(researchSectionIndex, index);
-      }
-    });
+    button.addEventListener('click', () => activateResearchEntry(index));
     researchNodeDockEl.appendChild(button);
   });
 }
@@ -2472,11 +2535,12 @@ function renderResearchNodeDock() {
 function updateResearchNodeDock() {
   if (!researchNodeDockEl || researchSectionIndex < 0) return;
   const showDock = activeClusterIndex === researchSectionIndex || detailArchiveIndex === researchSectionIndex || researchExploreIndex !== null;
-  researchNodeDockEl.setAttribute('aria-hidden', showDock ? 'false' : 'true');
+  researchNodeDockEl.setAttribute('aria-hidden', 'true');
   researchNodeDockEl.querySelectorAll('button').forEach((button) => {
     button.classList.toggle('is-active', Number(button.dataset.researchNode) === activeResearchEntryIndex);
   });
   document.body.classList.toggle('is-research-exploring', showDock);
+  renderContextNav();
 }
 
 renderResearchNodeDock();
@@ -2691,12 +2755,6 @@ function setActiveCluster(index, instant = false, preserveScroll = false) {
     }, 360);
   }
 
-  const activeNavIndex = cluster.visualOnly && cluster.copyFrom
-    ? sections.findIndex((candidate) => candidate.id === cluster.copyFrom)
-    : activeClusterIndex;
-  document.querySelectorAll('.nav-dot').forEach((button) => {
-    button.classList.toggle('is-active', Number(button.dataset.index) === activeNavIndex);
-  });
   clusterLabels.forEach((label, labelIndex) => {
     label.classList.toggle('is-active', labelIndex === activeClusterIndex);
   });
